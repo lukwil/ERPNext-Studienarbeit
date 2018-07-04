@@ -25,7 +25,7 @@
   draft=false
 ]{scrbook}
 \input{config}
-
+\setcounter{tocdepth}{4}
 %%%
 % EN: Syntax highligthing using pygments package
 \usepackage[chapter]{minted}
@@ -51,16 +51,13 @@
 \AtBeginEnvironment{Listing}{\setcounter{listing}{\value{lstlisting}}}
 \AtEndEnvironment{Listing}{\stepcounter{lstlisting}}
 
-\usepackage[onehalfspacing]{setspace} % Vorgabe von Herrn Müller
-
 % Abkürzungsverzeichnis
 \input{acronyms}
 
 \makeindex
-
+\usepackage{setspace} % Vorgabe von Herrn Müller
+\onehalfspacing
 \begin{document}
-
-
 
 %----------------------------------------------------------------------------------------
 %	TITELSEITE
@@ -105,8 +102,8 @@ Wirtschaftsinformatik, 6. Semester \\ \newline
 Prof. Dr. Erich \textsc{Müller} \\ \newline  \newline
 
 % Unterschriftenfeld; Vorgabe von Herrn Müller
-\hrulefill \\
-\centering Lukas Willburger
+%\hrulefill \\
+%\centering Lukas \textsc{Willburger}
 \end{minipage}\\[1cm]
 
 % If you don't want a supervisor, uncomment the two lines below and remove the section above
@@ -210,11 +207,11 @@ Prof. Dr. Erich \textsc{Müller} \\ \newline  \newline
 %Wird nur bei Verwendung von der lstlisting-Umgebung mit dem "caption"-Parameter benoetigt
 %\lstlistoflistings
 %ansonsten:
-\ifdeutsch
-  \listof{Listing}{Verzeichnis der Listings}
-\else
-  \listof{Listing}{List of Listings}
-\fi
+%\ifdeutsch
+%  \listof{Listing}{Verzeichnis der Listings}
+%\else
+%  \listof{Listing}{List of Listings}
+%\fi
 
 %mittels \newfloat wurde die Algorithmus-Gleitumgebung definiert.
 %Mit folgendem Befehl werden alle floats dieses Typs ausgegeben
@@ -259,21 +256,20 @@ Prof. Dr. Erich \textsc{Müller} \\ \newline  \newline
 \clearpage
 \setcounter{page}{1}
 % Hier stehen gesammelt alle Inhaltskapitel drin
+\spacing{1.5}
 \input{Inhalt}
 
-\pagenumbering{roman}
+\pagenumbering{Roman}
+\appendix
 %Literaturverzeichnis
-\printbibliography
-
-Alle URLs wurden zuletzt am \today\ geprüft.
+%\printbibliography
+\include{Quellen}
 
 %\renewcommand{\appendixtocname}{Anhang}
 %\renewcommand{\appendixname}{Anhang}
 %\renewcommand{\appendixpagename}{Anhang}
-%\appendix
 %\input{latexhints-german}
 %\input{latexhints-minted-german}
-
 %Abbildungen, die nicht im Text auftreten
 \include{Abbildungen} 
 % Selbständigkeitserklärung
