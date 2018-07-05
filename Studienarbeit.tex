@@ -16,7 +16,7 @@
   a4paper,  % Standard format - only KOMAScript uses paper=a4 - https://tex.stackexchange.com/a/61044/9075
   oneside,  % oneside für einseitigen Druck, twoside für buchartigen druck
   bibliography=totoc,
-  %               idxtotoc,   %Index ins Inhaltsverzeichnis
+                 %idxtotoc,   %Index ins Inhaltsverzeichnis
   %               liststotoc, %List of X ins Inhaltsverzeichnis, mit liststotocnumbered werden die Abbildungsverzeichnisse nummeriert
   headsepline,
   cleardoublepage=empty,
@@ -25,10 +25,12 @@
   draft=false
 ]{scrbook}
 \input{config}
-\setcounter{tocdepth}{4}
+%\setcounter{tocdepth}{4}
 %%%
 % EN: Syntax highligthing using pygments package
 \usepackage[chapter]{minted}
+\usepackage{titlesec}
+
 % EN: line numbers within page margins
 % DE: Zeilennummern innerhalb vom Rand
 \setminted{numbersep=5pt, xleftmargin=12pt, fontsize=\huge, baselinestretch=1}
@@ -83,7 +85,7 @@
 %----------------------------------------------------------------------------------------
 
 \HRule \\[0.4cm]
-{ \huge \bfseries ERPNext \\ \Large - Installation und Geschäftsfall -}\\[0.4cm] % Title of your document
+{ \huge \bfseries ERPNext \\ \Large - Systembestandteile, Installation und Geschäftsvorfall -}\\[0.4cm] % Title of your document
 \HRule \\[1.5cm]
  
 %----------------------------------------------------------------------------------------
@@ -102,8 +104,8 @@ Wirtschaftsinformatik, 6. Semester \\ \newline
 Prof. Dr. Erich \textsc{Müller} \\ \newline  \newline
 
 % Unterschriftenfeld; Vorgabe von Herrn Müller
-%\hrulefill \\
-%\centering Lukas \textsc{Willburger}
+\hrulefill \\
+\centering Lukas \textsc{Willburger}
 \end{minipage}\\[1cm]
 
 % If you don't want a supervisor, uncomment the two lines below and remove the section above
@@ -247,11 +249,11 @@ Prof. Dr. Erich \textsc{Müller} \\ \newline  \newline
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------------------------
 %
 % Main content starts here
 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------------------------
 \pagenumbering{arabic}
 \clearpage
 \setcounter{page}{1}
@@ -260,20 +262,21 @@ Prof. Dr. Erich \textsc{Müller} \\ \newline  \newline
 \input{Inhalt}
 
 \pagenumbering{Roman}
-\appendix
 %Literaturverzeichnis
-%\printbibliography
-\include{Quellen}
+\printbibliography
+\appendix
+%Abbildungen, die nicht im Text auftreten
+%\include{Abbildungen} 
+\include{Anmerkungen}
+% Selbständigkeitserklärung
+\include{Erklaerung} 
 
 %\renewcommand{\appendixtocname}{Anhang}
 %\renewcommand{\appendixname}{Anhang}
 %\renewcommand{\appendixpagename}{Anhang}
 %\input{latexhints-german}
 %\input{latexhints-minted-german}
-%Abbildungen, die nicht im Text auftreten
-\include{Abbildungen} 
-% Selbständigkeitserklärung
-\include{Erklaerung}  
+
 \pagestyle{empty}
 \renewcommand*{\chapterpagestyle}{empty}
 \end{document}

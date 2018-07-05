@@ -91,8 +91,8 @@
 % DE: Wichtig, ansonsten erscheint "No room for a new \write"
 \usepackage{scrwfile}
 % DE: siehe http://www.dickimaw-books.com/cgi-bin/faq.cgi?action=view&categorylabel=glossaries#glsnewwriteexceeded
-%\usepackage[acronym,indexonlyfirst,nomain]{glossaries}
-\usepackage[acronym,nomain]{glossaries}
+\usepackage[acronym,indexonlyfirst,nomain]{glossaries}
+%\usepackage[acronym,nomain]{glossaries}
 \ifdeutsch
   \renewcommand*{\acronymname}{Abkürzungsverzeichnis}
 \else
@@ -559,8 +559,8 @@
   backend       = biber, %biber does not work with 64x versions alternative: bibtex8
   %minalphanames only works with biber backend
   sortcites     = true,
-  bibstyle      = alphabetic,
-  citestyle     = alphabetic,
+  bibstyle      = numeric, %alphabetic,
+  citestyle     = numeric, %alphabetic,
   giveninits    = true,
   useprefix     = false, %"von, van, etc." will be printed, too. See below.
   minnames      = 1,
@@ -1267,7 +1267,7 @@
 \makeatletter
 \hypersetup{
   pdftitle={}, %Titel der Arbeit
-  pdfauthor={}, %Author
+  pdfauthor={Lukas Willburger}, %Author
   pdfkeywords={}, % CR-Klassifikation und ggf. weitere Stichworte
   pdfsubject={}
 }
